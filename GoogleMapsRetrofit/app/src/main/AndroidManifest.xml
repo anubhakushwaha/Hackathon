@@ -30,11 +30,12 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps">
-
-        </activity>
+            android:label="@string/title_activity_maps"></activity>
         <activity android:name=".BaseActivity" />
         <activity android:name=".FoldableListActivity">
+
+        </activity>
+        <activity android:name=".BeginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
