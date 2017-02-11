@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentActivity;
+import android.telephony.SmsManager;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,7 +31,9 @@ import com.androidtutorialpoint.googlemapsretrofit.DrugArrayAdapter;
 import com.androidtutorialpoint.googlemapsretrofit.MainActivity;
 import com.androidtutorialpoint.googlemapsretrofit.R;
 import com.androidtutorialpoint.googlemapsretrofit.SharedPreferenceStore;
+import com.github.tbouron.shakedetector.library.ShakeDetector;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -92,6 +95,22 @@ public class UserMedicineSettingsFragmentActivity extends FragmentActivity
         mIfForgetLabel.setTypeface(cb);
         mTimePickLabel.setTypeface(cb);
         mDrugTakeLabel.setTypeface(cb);
+        ShakeDetector.create(this, new ShakeDetector.OnShakeListener() {
+            @Override
+            public void OnShake() {
+//                String number = "tel:08585962392";
+//                Intent callIntent = new Intent(Intent.ACTION_CALL, Uri.parse(number));
+//                startActivity(callIntent);
+                ArrayList<String> phone_nos= new ArrayList<String>();
+                phone_nos.add("08585962392");
+                phone_nos.add("09958962625");
+                for(int i=0;i<phone_nos.size();++i){
+                    SmsManager smsManager = SmsManager.getDefault();
+                    smsManager.sendTextMessage(phone_nos.get(i), null, "ALERT: I need help. I am not feeling well.", null, null);
+                }
+            }
+
+        });
 
         checkInitialAppInstall();
 
