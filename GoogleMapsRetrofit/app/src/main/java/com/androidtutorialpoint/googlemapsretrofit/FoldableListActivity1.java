@@ -1,5 +1,6 @@
 package com.androidtutorialpoint.googlemapsretrofit;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.alexvasilkov.android.commons.utils.Views;
@@ -17,4 +18,9 @@ public class FoldableListActivity1 extends BaseActivity1 {
         foldableListLayout.setAdapter(new PaintingsAdapter(this));
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+    }
 }
