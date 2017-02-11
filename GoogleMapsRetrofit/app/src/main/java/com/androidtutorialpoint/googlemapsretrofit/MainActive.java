@@ -1,12 +1,13 @@
 package com.androidtutorialpoint.googlemapsretrofit;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -18,6 +19,7 @@ public class MainActive extends AppCompatActivity {
     EditText ed,ed1;
     DatePickerDialog datePickerDialog;
     EditText weeks;
+    Button conti;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,14 @@ public class MainActive extends AppCompatActivity {
         ed= (EditText) findViewById(R.id.editText);
         ed1= (EditText) findViewById(R.id.editText1);
         weeks= (EditText) findViewById(R.id.weeks);
+        conti = (Button)findViewById(R.id.cont);
+        conti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(),  InitialPrediction.class);
+                startActivity(i);
+            }
+        });
         ed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +70,7 @@ public class MainActive extends AppCompatActivity {
                                 SimpleDateFormat sdf1 = new SimpleDateFormat("yy-MM-dd");
                                 String output = sdf1.format(c.getTime());
                                 ed1.setText(output);
-                                Toast.makeText(getApplicationContext(),output+"   "+week1,Toast.LENGTH_LONG).show();
+//                                Toast.makeText(getApplicationContext(),output+"   "+week1,Toast.LENGTH_LONG).show();
 
                                 gen(week1);
 
@@ -78,8 +88,12 @@ public class MainActive extends AppCompatActivity {
         Calendar c = Calendar.getInstance();
         //System.out.println("Current time => " + c.getTime());
         final int week2 = c.get(Calendar.WEEK_OF_YEAR);
-        int calendarWeekDifference = (week2 - week1);
-        Toast.makeText(getApplicationContext(),""+week2,Toast.LENGTH_LONG).show();
-        weeks.setText(""+calendarWeekDifference);
+        int calendarWeekDifference;
+        if(week1 > week2){
+            calendarWeekDifference = 52 - week1 + week2;
+        }else
+        calendarWeekDifference = (week2 - week1);
+        //Toast.makeText(getApplicationContext(),""+week2,Toast.LENGTH_LONG).show();
+        weeks.setText(String.valueOf(calendarWeekDifference));
     }
 }
