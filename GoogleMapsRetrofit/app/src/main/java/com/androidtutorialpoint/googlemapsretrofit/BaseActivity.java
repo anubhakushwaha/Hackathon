@@ -1,33 +1,49 @@
 package com.androidtutorialpoint.googlemapsretrofit;
 
-import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.view.MenuItem;
+import android.os.IBinder;
 
-public class BaseActivity extends AppCompatActivity {
+public abstract class BaseActivity extends Activity implements ServiceConnection {
+
+    private SinchService.SinchServiceInterface mSinchServiceInterface;
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getApplicationContext().bindService(new Intent(this, SinchService.class), this,
+                BIND_AUTO_CREATE);
+    }
+
+    @Override
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+        if (SinchService.class.getName().equals(componentName.getClassName())) {
+            mSinchServiceInterface = (SinchService.SinchServiceInterface) iBinder;
+            onServiceConnected();
         }
     }
 
-    @NonNull
     @Override
-    public ActionBar getSupportActionBar() {
-        // Making getSupportActionBar() method to be @NonNull
-        ActionBar actionBar = super.getSupportActionBar();
-        if (actionBar == null) {
-            throw new NullPointerException("Action bar was not initialized");
+    public void onServiceDisconnected(ComponentName componentName) {
+        if (SinchService.class.getName().equals(componentName.getClassName())) {
+            mSinchServiceInterface = null;
+            onServiceDisconnected();
         }
-        return actionBar;
+    }
+
+    protected void onServiceConnected() {
+        // for subclasses
+    }
+
+    protected void onServiceDisconnected() {
+        // for subclasses
+    }
+
+    protected SinchService.SinchServiceInterface getSinchServiceInterface() {
+        return mSinchServiceInterface;
     }
 
 }

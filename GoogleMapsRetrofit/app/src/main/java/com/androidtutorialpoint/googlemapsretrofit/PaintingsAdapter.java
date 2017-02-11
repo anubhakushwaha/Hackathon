@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.Arrays;
-
 import com.alexvasilkov.android.commons.adapters.ItemsAdapter;
 import com.alexvasilkov.android.commons.utils.Views;
+
+import java.util.Arrays;
 
 /**
  * Created by dell on 2/10/2017.
@@ -60,7 +60,7 @@ public class PaintingsAdapter extends ItemsAdapter<Painting> implements View.OnC
     @Override
     public void onClick(View view) {
         Painting item = (Painting) view.getTag(R.id.list_item_image);
-        if (getActivityX() instanceof FoldableListActivity) {
+        if (getActivityX() instanceof FoldableListActivity1) {
             Toast.makeText(getActivityX(), item.getTitle(), Toast.LENGTH_SHORT).show();
         }
     }
