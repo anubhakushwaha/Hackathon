@@ -87,13 +87,14 @@
         <activity android:name=".ThirdAnalyticFragment" />
         <activity
             android:name=".MainActive"
-            android:windowSoftInputMode="stateHidden|adjustResize">
+
+            android:windowSoftInputMode="stateHidden|adjustResize"></activity>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
         <activity android:name=".MythFactGame" />
         <activity android:name=".TripIndicatorFragmentActivity" />
         <activity
@@ -105,7 +106,11 @@
         <activity
             android:name=".TripIndicatorPackingActivity"
             android:theme="@android:style/Theme.Holo.Dialog.NoActionBar" />
+
+        <activity android:name=".WarningActivity"></activity>
+
         <activity android:name=".InitialPrediction"></activity>
+
     </application>
 
 </manifest>

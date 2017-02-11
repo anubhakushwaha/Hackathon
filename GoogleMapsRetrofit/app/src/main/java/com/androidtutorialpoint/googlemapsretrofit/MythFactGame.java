@@ -54,11 +54,11 @@ public class MythFactGame extends Activity {
 
     private void initializeGame() {
         //setup questions
-        questions= new ArrayList<String>(Arrays.asList("Once you get malaria you will be immune from it for the rest of your life",
-                "Malaria is a life-threatening disease", "You don’t have to worry about malaria in the dry season",
-                "Nearly half of the world's population is at risk of malaria", "There is a vaccine for malaria"));
+        questions= new ArrayList<String>(Arrays.asList("You can’t fly during your first or last trimester",
+                "You can’t pet your cat during pregnancy", "You shouldn’t take hot baths while pregnant",
+                "You shouldn’t drink coffee while pregnant", "The baby’s position in the womb can tell you its sex"));
         //setup answers
-        answers = new ArrayList<String>(Arrays.asList("myth","fact","myth","fact","myth"));
+        answers = new ArrayList<String>(Arrays.asList("myth","myth","fact","myth","myth"));
         //initialize game score
         tvUserCoins.setText("" + userCoins);
         //initial question
