@@ -58,7 +58,7 @@ public class PlaceCallActivity extends BaseActivity {
     }
 
     private void callButtonClicked() {
-        String userName = videoCall.getText().toString();
+        String userName = "doctor";
 //        if (userName.isEmpty()) {
 //            Toast.makeText(this, "Please enter a user to call", Toast.LENGTH_LONG).show();
 //            return;

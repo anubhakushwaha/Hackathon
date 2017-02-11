@@ -86,7 +86,7 @@ public class LoginActivity extends BaseActivity implements SinchService.StartFai
     }
 
     private void loginClicked() {
-        String userName = mLoginName.getText().toString();
+        String userName = "UserName";
 
         if (userName.isEmpty()) {
             Toast.makeText(this, "Please enter a name", Toast.LENGTH_LONG).show();

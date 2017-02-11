@@ -14,14 +14,6 @@
             android:paddingLeft="40dp"
             android:paddingRight="40dp">
 
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
-                android:text="Enter your name"
-                android:textAllCaps="true"
-                android:id="@+id/textView" android:layout_gravity="center_horizontal"
-                android:textColor="@color/sinch_purple" android:textSize="20sp"/>
         <EditText
                 android:id="@+id/loginName"
                 android:layout_width="match_parent"
@@ -49,19 +41,8 @@
             android:minWidth="132dp"
             android:textColor="@color/off_white"
             android:textSize="22sp"
-            android:textStyle="bold" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"/>
-    <Button
-        android:id="@+id/checkMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/sinch_purple"
-        android:minHeight="56dp"
-        android:minWidth="132dp"
-        android:textColor="@color/off_white"
-        android:textSize="22sp"
-        android:textStyle="bold" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
-        android:text="Menu"/>
+            android:textStyle="bold" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true"
+        android:text="CONTINUE" />
+
 
 </RelativeLayout>
