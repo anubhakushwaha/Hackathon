@@ -17,13 +17,14 @@ public class MainActive extends AppCompatActivity {
 
     EditText ed,ed1;
     DatePickerDialog datePickerDialog;
-
+    EditText weeks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.active_main);
         ed= (EditText) findViewById(R.id.editText);
         ed1= (EditText) findViewById(R.id.editText1);
+        weeks= (EditText) findViewById(R.id.weeks);
         ed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,5 +80,6 @@ public class MainActive extends AppCompatActivity {
         final int week2 = c.get(Calendar.WEEK_OF_YEAR);
         int calendarWeekDifference = (week2 - week1);
         Toast.makeText(getApplicationContext(),""+week2,Toast.LENGTH_LONG).show();
+        weeks.setText(""+calendarWeekDifference);
     }
 }

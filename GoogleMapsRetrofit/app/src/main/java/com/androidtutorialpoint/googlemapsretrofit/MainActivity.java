@@ -26,6 +26,7 @@ public class MainActivity extends FragmentActivity {
     Button mTripButton;
     Button tempButton;
     Button userProfile;
+    Button warning;
     String TAGMA="MainActivity";
 
 
@@ -42,7 +43,7 @@ public class MainActivity extends FragmentActivity {
         mInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //startActivity(new Intent(getApplication().getApplicationContext(), InfoHubFragmentActivity.class));
+                startActivity(new Intent(getApplication().getApplicationContext(), FoldableListActivity1.class));
                 finish();
 
             }
@@ -56,7 +57,7 @@ public class MainActivity extends FragmentActivity {
         mTripButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               // startActivity(new Intent(getApplication().getApplicationContext(),TripIndicatorFragmentActivity.class));
+               startActivity(new Intent(getApplication().getApplicationContext(),TripIndicatorFragmentActivity.class));
                 finish();
             }
         });
@@ -81,7 +82,14 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
-
+        warning =(Button)findViewById(R.id.warning);
+        warning.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                finish();
+            }
+        });
         mAdapter = new FragmentAdapter(getSupportFragmentManager());
         /**Setting the Fragments**/
         mPager = (ViewPager) findViewById(R.id.vPager);
