@@ -24,6 +24,7 @@ public class MainActivity extends FragmentActivity {
     PageIndicator mIndicator;
     Button mInfoButton;
     Button mTripButton;
+    Button mplacesButton;
     Button tempButton;
     Button userProfile;
     Button warning;
@@ -38,7 +39,18 @@ public class MainActivity extends FragmentActivity {
         final DatabaseSQLiteHelper sqLite = new DatabaseSQLiteHelper(this);
         /*Method opens the Info Hub
         *Tiny 'i' symbol in the Setup Screen is Info Hub Button
+        *
         */
+        mplacesButton = (Button) findViewById(R.id.placesButton);
+        mplacesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplication().getApplicationContext(), MapsActivity.class));
+                finish();
+
+            }
+        });
+
         mInfoButton = (Button) findViewById(R.id.infoButton);
         mInfoButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +98,7 @@ public class MainActivity extends FragmentActivity {
         warning.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(),WarningActivity.class));
                 finish();
             }
         });

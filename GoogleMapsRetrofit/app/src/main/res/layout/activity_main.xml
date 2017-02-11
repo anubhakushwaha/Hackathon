@@ -61,6 +61,18 @@
         >
 
         <Button
+            android:id="@+id/placesButton"
+
+            android:background="@android:drawable/presence_video_busy"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:adjustViewBounds="true"
+            android:layout_marginRight="15dp"
+
+
+            />
+
+        <Button
             android:id="@+id/homeButton"
 
             android:background="@drawable/home_icon_normal"

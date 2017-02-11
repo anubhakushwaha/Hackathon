@@ -7,7 +7,7 @@
     <color name="purple">#AB47BC</color>
     <color name="green">#68EFAD</color>
     <color name="sinch_purple">#ff63029d</color>
-    <color name="off_white">#fffafafa</color>
+    <color name="off_white">#fafafa</color>
     <color name="greyish">#fff2f1f2</color>
     <color name="white">#FFF</color>
     <color name="golden_brown">#664a3a</color>
@@ -32,7 +32,7 @@
     <color name="red">#e33d1b</color>
     <color name="dark_red">#cc2303</color>
     <color name="lighter_green">#B2FF59</color>
-    <color name="lightest_red">#EF9A9A</color>
+    <color name="lightest_red">#ef9a9a</color>
     <color name="cream">#fffff7bf</color>
     <color name="light_green">#ff8fc24e</color>
     <color name="lightest_brown">#ffe0cf79</color>
